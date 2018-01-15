@@ -9,6 +9,8 @@ pacman::p_load(shiny,highcharter,DT,readr,dplyr,shinymaterial,visNetwork,shinyda
 # library(visNetwork)
 # library(shinydashboard)
 
+dir <- dirname(parent.frame(2)$ofile)
+setwd(dir)
 
 Data_Ejemplo_Camiones <- read_delim("Data_Ejemplo_Camiones.csv", 
                                     ";", escape_double = FALSE, trim_ws = TRUE)
