@@ -2,15 +2,14 @@
 library(shiny)
 library(quantmod)
 library(VGAM)
-
+library(shinydashboard)
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
-  pageWithSidebar(
+ui <- dashboardPage(
+    dashboardHeader(title = "Stock Explorer")
+    ,
     
-    headerPanel("Stock Explorer"),
-    
-    sidebarPanel(
+    dashboardSidebar(
       
       helpText("Select a stock to examine. 
                Information will be collected from yahoo finance."),
@@ -22,17 +21,14 @@ ui <- fluidPage(
                      start = "2013-01-01", end = "2013-09-05"),
       
       actionButton("get", "Get Stock"),
-      
-      br(),
-      br(),
-      
+
       uiOutput("newBox")
       
       ),
     
     # Show a tabset that includes a plot, summary, and table view
     # of the generated distribution
-    mainPanel(
+    dashboardBody(
       tabsetPanel(
         tabPanel("Charts", plotOutput("chart")), 
         tabPanel("Model", div(h3(textOutput("ks"))), 
@@ -43,7 +39,7 @@ ui <- fluidPage(
       )
     )
   )
-)
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {

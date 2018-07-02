@@ -7,7 +7,7 @@ library(readr)
 library(dplyr)
 library(shinymaterial)
 library(visNetwork)
-library(shinydashboard)
+
 
 # dir <- dirname(parent.frame(2)$ofile)
 # setwd(dir)
@@ -23,6 +23,10 @@ datanormal<-datanormal%>%
 
 
 ui <- material_page(title = "Camiones Mineros",
+    tags$head(tags$title(
+
+    ))
+    ,
     material_side_nav(
     selectInput("var", 
                 label = "Choose a variable to display",
