@@ -4,6 +4,7 @@ library(caret)
 library(e1071)
 library(ranger)
 library(ggmap)
+library(DT)
 #library(mapproj)
 
 Subconjunto<-readRDS("SubconDatos.rds")
